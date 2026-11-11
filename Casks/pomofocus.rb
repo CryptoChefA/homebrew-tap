@@ -14,15 +14,16 @@ cask "pomofocus" do
 
   auto_updates true
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Pomofocus.app"
 
   # Pomofocus isn't notarized by Apple yet. Installing through Homebrew is the choice to
   # trust it, so the download quarantine is cleared and it opens without Open Anyway.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Pomofocus.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Pomofocus.app"],
+        writable_paths: ["{{appdir}}/Pomofocus.app"]
   end
 
   zap trash: [
