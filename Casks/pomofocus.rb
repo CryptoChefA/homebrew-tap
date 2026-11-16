@@ -1,6 +1,6 @@
 cask "pomofocus" do
-  version "0.22.11"
-  sha256 "75de2146695a402240498c9da3a336654db76d6235ac1f8063d6208b522ef525"
+  version "0.22.12"
+  sha256 "b2b3767de39eee1a9587fa1c3b8f7a86b6baa05af17ce09de791c89bb471e634"
 
   url "https://github.com/CryptoChefA/pomofocus-mac/releases/download/v#{version}/Pomofocus.zip"
   name "Pomofocus for Mac"
